@@ -8,11 +8,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <link rel="icon" href="images/webshop-icon.jpg">
+
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
-    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="{{ asset('/css/global.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Scripts -->
@@ -44,9 +46,9 @@
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
+                    <!-- <ul class="nav navbar-nav">
                         &nbsp;
-                    </ul>
+                    </ul> -->
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
@@ -65,7 +67,7 @@
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                             <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Logout
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -85,6 +87,6 @@
 
     <!-- Scripts -->
     <script src="{{ mix('/js/app.js') }}"></script>
-    <script src="js/global.js"></script>
+    <script src="{{ asset('/js/global.js') }}"></script>
 </body>
 </html>

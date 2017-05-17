@@ -12,7 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	$thumbnails = App\Thumbnail::all();
+    return view('welcome', compact('thumbnails'));
+});
+
+Route::get('/test', function() {
+	return view('test');
 });
 
 Auth::routes();

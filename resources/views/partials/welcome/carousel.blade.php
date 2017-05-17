@@ -10,7 +10,7 @@
                 <div class="carousel-inner" role="listbox">
 
                     <div class="item active">
-                        <img src="images/welcome/example-1.jpg" width="460" height="345">
+                        <img src="images/welcome/example-1.jpg">
                         <div class="carousel-caption">
                             <h1>Ph. Otto Graaf</h1>
                             <h3>Camera Obscura straat 101</h3>
@@ -18,7 +18,7 @@
                         </div>
                     </div>
 
-<!--                     <div class="item">
+                    <!-- <div class="item">
                         <img src="images/welcome/example-2.jpg" width="460" height="345">
                         <div class="carousel-caption">
                             <h3>Chania</h3>

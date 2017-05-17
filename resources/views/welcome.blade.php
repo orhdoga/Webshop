@@ -23,7 +23,7 @@
 		<div class="col-md-12 text-center">
 			
 			<div class="page-header">
-			  <h1>Models</h1>
+			  <h1>Pictures at its best shape..</h1>
 			</div>
 
 		</div>
@@ -31,25 +31,26 @@
 	</div>
 
 	<div class="row">
-
-  		<div class="col-md-4">
-    		<a href="#" class="thumbnail">
-      			<img src="images/welcome/example-2.jpg">
-    		</a>
- 		</div>
-
- 		<div class="col-md-4">
-    		<a href="#" class="thumbnail">
-      			<img src="images/welcome/example-3.jpg">
-    		</a>
- 		</div>
-
- 		  <div class="col-md-4">
-    		<a href="#" class="thumbnail">
-      			<img src="images/welcome/example-4.jpg">
-    		</a>
- 		</div>
-
+		@foreach ($thumbnails as $thumbnail)
+		 		<div class="col-md-4">
+		            <div class="thumbnail">
+		                <img src="{{ url('images/welcome/' . $thumbnail->image) }}">
+		                <div class="caption">
+		                	<div class="text-center">
+					    		<a href="#" class="tag">
+					    			Countries
+					    		</a>
+					    		<a href="#" class="tag">
+					    			Models
+					    		</a>
+					    		<a href="#" class="tag">
+					    			News
+					    		</a>
+				    		</div>
+		                </div>
+		            </div>    
+		        </div>
+		@endforeach
 	</div>
 	
 </div>	
