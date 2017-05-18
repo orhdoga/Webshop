@@ -37,13 +37,13 @@
 		                <img src="{{ url('images/welcome/' . $thumbnail->image) }}">
 		                <div class="caption">
 		                	<div class="text-center">
-					    		<a href="#" class="tag">
+					    		<a href="{{ url('/' . $thumbnail->id . '/countries') }}" class="tag">
 					    			Countries
 					    		</a>
-					    		<a href="#" class="tag">
+					    		<a href="{{ url('/' . $thumbnail->id . '/models') }}" class="tag">
 					    			Models
 					    		</a>
-					    		<a href="#" class="tag">
+					    		<a href="{{ url('/' . $thumbnail->id . '/news') }}" class="tag">
 					    			News
 					    		</a>
 				    		</div>

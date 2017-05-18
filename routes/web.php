@@ -21,3 +21,15 @@ Route::get('/test', function() {
 });
 
 Auth::routes();
+
+Route::group(['middleware' => ['auth']], function () {
+    
+	Route::group(['prefix' => '{thumbnail}'], function () {
+
+		Route::get("/countries", 'CountryController@show');
+		Route::get("/models", 'FashionModelController@show');
+		Route::get("/news", 'NewsController@show');
+
+	});	
+
+});
