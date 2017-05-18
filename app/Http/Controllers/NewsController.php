@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Thumbnail;
+use App\News;
 
 class NewsController extends Controller
 {
@@ -16,5 +17,14 @@ class NewsController extends Controller
             'thumbnail' => $thumbnail,
             'news' => $news
         ]);
+    }
+
+    public function destroy(Thumbnail $thumbnail, News $newsItem)
+    {
+        $newsItem->delete();
+
+        flash(e('You have successfully deleted ' . $newsItem->media), 'danger');
+
+        return back();
     }
 }

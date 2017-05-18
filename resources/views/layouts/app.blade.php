@@ -95,7 +95,11 @@
                     </ul>
                 </div>
             </div>    
-        @endif   
+        @endif
+
+        <div class="container">
+            @include('flash::message')
+        </div>    
         
         @yield('content')
 
@@ -104,5 +108,10 @@
     <!-- Scripts -->
     <script src="{{ mix('/js/app.js') }}"></script>
     <script src="{{ asset('/js/global.js') }}"></script>
+
+    <script>
+        $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+    </script>
+
 </body>
 </html>

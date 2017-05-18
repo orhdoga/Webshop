@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Thumbnail;
+use App\FashionModel;
 
 class FashionModelController extends Controller
 {
@@ -16,5 +17,14 @@ class FashionModelController extends Controller
             'thumbnail' => $thumbnail,
             'fashionModels' => $fashionModels
         ]);
+    }
+
+    public function destroy(Thumbnail $thumbnail, FashionModel $fashionModel)
+    {
+        $fashionModel->delete();
+
+        flash(e('You have successfully deleted ' . $fashionModel->media), 'danger');
+
+        return back();
     }
 }

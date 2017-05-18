@@ -27,14 +27,16 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::group(['prefix' => '{thumbnail}'], function () {
 
 		Route::get("/countries", 'CountryController@show');
-		Route::get("/models", 'FashionModelController@show');
-		Route::get("/news", "NewsController@show");
-
-		Route::get("/countries/upload", 'CountryController@store');
+		Route::get("/countries/upload", 'CountryController@upload');		
 		Route::delete("/{country}/delete", 'CountryController@destroy');
 
-		Route::get("/models/upload", 'CountryController@store');
-		Route::get("/news/upload", 'CountryController@store');
+		Route::get("/models", 'FashionModelController@show');
+		Route::get("/models/upload", 'FashionModelController@upload');
+		Route::delete("/{fashionModel}/delete", 'FashionModelController@destroy');
+		
+		Route::get("/news", "NewsController@show");
+		Route::get("/news/upload", 'NewsController@upload');
+		Route::delete("/{newsItem}/delete", 'NewsController@destroy');
 
 	});
 
