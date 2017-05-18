@@ -16,7 +16,8 @@ class CreateCountriesTable extends Migration
         Schema::create('countries', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('thumbnail_id')->nullable();
-            $table->string('image')->nullable();
+            $table->string('artist')->nullable();
+            $table->string('media')->nullable();
             $table->timestamps();
         });
     }

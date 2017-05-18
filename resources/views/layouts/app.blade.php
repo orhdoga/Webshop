@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="icon" href="images/webshop-icon.jpg">
+    <link rel="icon" href="{{ url('images/webshop-icon.jpg') }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -62,7 +62,7 @@
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp; {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">

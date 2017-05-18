@@ -22,3 +22,11 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Country::class, function (Faker\Generator $faker) {
+    return [
+        'thumbnail_id' => rand(1, 3),
+        'artist' => 'Ph',
+        'media' => 'example-' . rand(2, 4) . '.jpg'
+    ];
+});

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="icon" href="images/webshop-icon.jpg">
+    <link rel="icon" href="{{ url('images/webshop-icon.jpg') }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Thumbnail;
-use App\Country;
 
 class CountryController extends Controller
 {
@@ -48,8 +47,9 @@ class CountryController extends Controller
      */
     public function show(Thumbnail $thumbnail)
     {
-        $thumbnail = $thumbnail->countries;
-        return view('country.show', compact('thumbnail'));
+        return view('country.show', [
+            'thumbnail' => $thumbnail
+        ]);
     }
 
     /**
