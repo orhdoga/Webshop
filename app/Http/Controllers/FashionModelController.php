@@ -8,7 +8,10 @@ use App\Thumbnail;
 
 class FashionModelController extends Controller
 {
-    public function show(Thumbnail $thumbnail) {
-    	return $thumbnail->fashionModels;
+    public function show(Thumbnail $thumbnail)
+    {
+        return view('fashionModel.show', [
+            'thumbnail' => $thumbnail
+        ]);
     }
 }

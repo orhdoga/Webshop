@@ -9,6 +9,8 @@ use App\Thumbnail;
 class NewsController extends Controller
 {
     public function show(Thumbnail $thumbnail) {
-    	return $thumbnail->news;
+        return view('news.show', [
+            'thumbnail' => $thumbnail
+        ]);
     }
 }

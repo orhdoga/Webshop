@@ -15,17 +15,22 @@ class NewsTableSeeder extends Seeder
     {
         $news = new News;
         $news->thumbnail_id = 1;
-        $news->image = "example-2.jpg";
-        $news->save();
+        $news->artist = "Ph";
+        $news->media = "example-2.jpg";
+        $news->save(); 
 
         $news2 = new News;
         $news2->thumbnail_id = 2;
-        $news2->image = "example-3.jpg";
-        $news2->save();
+        $news2->artist = "Ph";
+        $news2->media = "example-2.jpg";
+        $news2->save(); 
 
         $news3 = new News;
-        $news3->thumbnail_id = 3;
-        $news3->image = "example-4.jpg";
-        $news3->save();
+    	$news3->thumbnail_id = 3;
+        $news3->artist = "Ph";
+        $news3->media = "example-2.jpg";
+        $news3->save(); 
+
+        factory(News::class, 20)->create();
     }
 }

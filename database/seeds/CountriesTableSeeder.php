@@ -30,5 +30,7 @@ class CountriesTableSeeder extends Seeder
         $country3->artist = "Ph";
         $country3->media = "example-4.jpg";
         $country3->save();
+
+        factory(Country::class, 20)->create();
     }
 }

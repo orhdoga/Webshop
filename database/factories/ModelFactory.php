@@ -30,3 +30,19 @@ $factory->define(App\Country::class, function (Faker\Generator $faker) {
         'media' => 'example-' . rand(2, 4) . '.jpg'
     ];
 });
+
+$factory->define(App\FashionModel::class, function (Faker\Generator $faker) {
+    return [
+        'thumbnail_id' => rand(1, 3),
+        'artist' => 'Ph',
+        'media' => 'example-' . rand(2, 4) . '.jpg'
+    ];
+});
+
+$factory->define(App\News::class, function (Faker\Generator $faker) {
+    return [
+        'thumbnail_id' => rand(1, 3),
+        'artist' => 'Ph',
+        'media' => 'example-' . rand(2, 4) . '.jpg'
+    ];
+});

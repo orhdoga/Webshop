@@ -13,16 +13,16 @@ class ThumbnailsTableSeeder extends Seeder
      */
     public function run()
     {
-        $thumbnai = new Thumbnail;
-        $thumbnai->image = "example-2.jpg";
-    	$thumbnai->save();
+        $thumbnail = new Thumbnail;
+        $thumbnail->image = "example-2.jpg";
+        $thumbnail->save();
 
-    	$thumbnai2 = new Thumbnail;
-        $thumbnai2->image = "example-3.jpg";
-    	$thumbnai2->save();
+        $thumbnail2 = new Thumbnail;
+        $thumbnail2->image = "example-3.jpg";
+        $thumbnail2->save();
 
-    	$thumbnai3 = new Thumbnail;
-        $thumbnai3->image = "example-4.jpg";
-    	$thumbnai3->save();
+        $thumbnail3 = new Thumbnail;
+        $thumbnail3->image = "example-4.jpg";
+        $thumbnail3->save();
     }
 }
