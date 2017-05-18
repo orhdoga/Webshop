@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Thumbnail;
+use App\Country;
 
 class CountryController extends Controller
 {
@@ -47,8 +48,11 @@ class CountryController extends Controller
      */
     public function show(Thumbnail $thumbnail)
     {
+        $countries = $thumbnail->countries()->paginate(9);
+
         return view('country.show', [
-            'thumbnail' => $thumbnail
+            'thumbnail' => $thumbnail,
+            'countries' => $countries
         ]);
     }
 
@@ -81,8 +85,10 @@ class CountryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Thumbnail $thumbnail, Country $country)
     {
-        //
+        $country->delete();
+
+        return back();
     }
 }

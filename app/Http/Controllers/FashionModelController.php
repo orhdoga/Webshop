@@ -10,8 +10,11 @@ class FashionModelController extends Controller
 {
     public function show(Thumbnail $thumbnail)
     {
+    	$fashionModels = $thumbnail->fashionModels()->paginate(9);
+
         return view('fashionModel.show', [
-            'thumbnail' => $thumbnail
+            'thumbnail' => $thumbnail,
+            'fashionModels' => $fashionModels
         ]);
     }
 }

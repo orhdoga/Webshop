@@ -8,9 +8,13 @@ use App\Thumbnail;
 
 class NewsController extends Controller
 {
-    public function show(Thumbnail $thumbnail) {
+    public function show(Thumbnail $thumbnail) 
+    {
+    	$news = $thumbnail->news()->paginate(9);
+
         return view('news.show', [
-            'thumbnail' => $thumbnail
+            'thumbnail' => $thumbnail,
+            'news' => $news
         ]);
     }
 }

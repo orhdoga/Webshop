@@ -28,8 +28,14 @@ Route::group(['middleware' => ['auth']], function () {
 
 		Route::get("/countries", 'CountryController@show');
 		Route::get("/models", 'FashionModelController@show');
-		Route::get("/news", 'NewsController@show');
+		Route::get("/news", "NewsController@show");
 
-	});	
+		Route::get("/countries/upload", 'CountryController@store');
+		Route::delete("/{country}/delete", 'CountryController@destroy');
+
+		Route::get("/models/upload", 'CountryController@store');
+		Route::get("/news/upload", 'CountryController@store');
+
+	});
 
 });
