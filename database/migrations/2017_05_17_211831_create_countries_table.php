@@ -15,9 +15,10 @@ class CreateCountriesTable extends Migration
     {
         Schema::create('countries', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('thumbnail_id')->nullable();
-            $table->string('artist')->nullable();
-            $table->string('media')->nullable();
+            $table->integer('thumbnail_id')->unsigned();
+            $table->foreign('thumbnail_id')->references('id')->on('thumbnails');
+            $table->string('artist');
+            $table->string('media');
             $table->timestamps();
         });
     }

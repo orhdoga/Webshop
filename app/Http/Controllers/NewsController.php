@@ -19,11 +19,16 @@ class NewsController extends Controller
         ]);
     }
 
+    public function upload()
+    {
+        return view('news.form');
+    }
+
     public function destroy(Thumbnail $thumbnail, News $newsItem)
     {
         $newsItem->delete();
 
-        flash(e('You have successfully deleted ' . $newsItem->media), 'danger');
+        flash(e("You have successfully deleted " . $newsItem->media), 'danger');
 
         return back();
     }

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Thumbnail;
 use App\Country;
 
+use App\Http\Requests\UploadRequest;
+
 class CountryController extends Controller
 {
     /**
@@ -24,9 +26,9 @@ class CountryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function upload(Thumbnail $thumbnail)
     {
-        //
+        return view('country.form', compact('thumbnail'));
     }
 
     /**
@@ -35,9 +37,11 @@ class CountryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Thumbnail $thumbnail, UploadRequest $request)
     {
-        //
+        $country = $thumbnail->countries()->create(request()->all());
+
+        return redirect($thumbnail->id . '/countries');
     }
 
     /**
@@ -89,7 +93,7 @@ class CountryController extends Controller
     {
         $country->delete();
 
-        flash(e('You have successfully deleted ' . $country->media), 'danger');
+        flash(e("You have successfully deleted " . $country->media), 'danger');
 
         return back();
     }

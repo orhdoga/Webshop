@@ -10,7 +10,7 @@
 
 			<h1 style="display: inline-block">Models</h1>
 			<h2 style="display: inline-block" class="pull-right">
-				<a href="#">Upload media <i class="fa fa-upload" aria-hidden="true"></i></a>
+				<a href="{{ url($thumbnail->id . '/' . 'models' . '/upload') }}">Upload media <i class="fa fa-upload" aria-hidden="true"></i></a>
 			</h2>
 
 		</div>
@@ -27,7 +27,7 @@
 				{{ method_field('DELETE') }}
 				<div class="col-md-4" style="margin-top: 15px;">
 		            <div class="thumbnail">
-		                <img src="{{ url('images/welcome/' . $fashionModel->media) }}">
+		                <img src="{{ url('images/fashionModel/' . $fashionModel->media) }}">
 			            <div class="caption">
 			            	<span style="font-size: 40px;">{{ $fashionModel->artist }}.</span>
 			            		<button style="margin-top: 16px; margin-left: 10px;" class="btn btn-primary pull-right">Add To Shopping Cart &nbsp;<i class="fa fa-cart-plus" aria-hidden="true"></i></button>

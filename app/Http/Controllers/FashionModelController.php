@@ -19,11 +19,16 @@ class FashionModelController extends Controller
         ]);
     }
 
+    public function upload()
+    {
+        return view('fashionModel.form');
+    }
+
     public function destroy(Thumbnail $thumbnail, FashionModel $fashionModel)
     {
         $fashionModel->delete();
 
-        flash(e('You have successfully deleted ' . $fashionModel->media), 'danger');
+        flash(e("You have successfully deleted " . $fashionModel->media), 'danger');
 
         return back();
     }
