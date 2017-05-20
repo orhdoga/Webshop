@@ -58,11 +58,11 @@
                             <li><a href="{{ route('register') }}"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp; Register</a></li>
                         @else
                             <li><a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp; Shopping Cart 
-                                &nbsp;<span class="card-count">10</span></a>
+                                &nbsp;<span class="badge">10</span></a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp; {{ Auth::user()->name }} <span class="caret"></span>
+                                    <i class="fa fa-user" aria-hidden="true"></i>&nbsp; {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">

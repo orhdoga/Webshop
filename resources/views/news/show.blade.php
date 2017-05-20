@@ -53,6 +53,4 @@
 
 </div>
 
-@include('partials.welcome.footer')
-
 @endsection

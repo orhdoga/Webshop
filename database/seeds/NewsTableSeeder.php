@@ -29,7 +29,7 @@ class NewsTableSeeder extends Seeder
     	$news3->thumbnail_id = 3;
         $news3->artist = "Ph";
         $news3->media = "news-3.jpg";
-        $news3->save(); 
+        $news3->save();
 
         factory(News::class, 20)->create();
     }
