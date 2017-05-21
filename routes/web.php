@@ -36,10 +36,14 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::get("/news", "NewsController@show");
 		Route::get("/news/upload", 'NewsController@upload');
 
-		Route::delete("/{country}/delete", 'CountryController@destroy');
-		Route::delete("/{fashionModel}/delete", 'FashionModelController@destroy');
-		Route::delete("/{newsItem}/delete", 'NewsController@destroy');
+		Route::delete("/countries/{country}/delete", 'CountryController@destroy');
+		Route::delete("/models/{fashionModel}/delete", 'FashionModelController@destroy');
+		Route::delete("/news/{newsItem}/delete", 'NewsController@destroy');
 
 	});
 
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

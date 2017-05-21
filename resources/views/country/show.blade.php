@@ -22,7 +22,7 @@
 	<div class="row">
 
 		@foreach ($countries as $country)
-			<form method="POST" action="{{ url($thumbnail->id . '/' . $country->id . '/delete') }}">
+			<form method="POST" action="{{ url($thumbnail->id . '/countries/' . $country->id . '/delete') }}">
 				{{ csrf_field() }}
 				{{ method_field('DELETE') }}
 				<div class="col-md-4" style="margin-top: 15px;">

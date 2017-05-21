@@ -35,7 +35,7 @@ $factory->define(App\FashionModel::class, function (Faker\Generator $faker) {
     return [
         'thumbnail_id' => rand(1, 3),
         'artist' => 'Ph',
-        'media' => 'FashionModel-' . rand(1, 9) . '.jpg'
+        'media' => 'fashionModel-' . rand(1, 9) . '.jpg'
     ];
 });
 
