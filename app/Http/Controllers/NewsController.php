@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Thumbnail;
 use App\News;
 
+use App\Http\Requests\UploadRequest;
+
 class NewsController extends Controller
 {
     public function show(Thumbnail $thumbnail) 
@@ -19,9 +21,26 @@ class NewsController extends Controller
         ]);
     }
 
-    public function upload()
+    public function upload(Thumbnail $thumbnail)
     {
-        return view('news.form');
+        return view('news.form', compact('thumbnail'));
+    }
+
+    public function store(Thumbnail $thumbnail, News $news, UploadRequest $request)
+    {
+        $news = $thumbnail->news()->create(request()->all());
+
+        if ($request->hasFile('media')) {
+            $media = $request->file('media');
+            $filename = time() . '.' . $media->getClientOriginalExtension();
+            \Image::make($media)->save(public_path('/images/news/' . $filename));
+            $news->media = $filename;
+            $news->save();
+        }
+
+        flash(e("You have successfully created " . $news->name), 'success');
+
+        return redirect($thumbnail->id . '/news');
     }
 
     public function destroy(Thumbnail $thumbnail, News $newsItem)

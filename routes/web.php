@@ -32,9 +32,11 @@ Route::group(['middleware' => ['auth']], function () {
 
 		Route::get('/models', 'FashionModelController@show');
 		Route::get('/models/upload', 'FashionModelController@upload');
+		Route::post('/models', 'FashionModelController@store');
 		
 		Route::get('/news', 'NewsController@show');
 		Route::get('/news/upload', 'NewsController@upload');
+		Route::post('/news', 'FashionModelController@store');
 
 		Route::delete('/countries/{country}/delete', 'CountryController@destroy');
 		Route::delete('/models/{fashionModel}/delete', 'FashionModelController@destroy');

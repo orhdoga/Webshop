@@ -30,9 +30,9 @@
 		                <img src="{{ url('images/country/' . $country->media) }}" 
 		                style="height: 200px !important; width: 100% !important">
 			            <div class="caption">
-			            	<h3 style="display: inline-block;">{{ $country->name }}</h3>
+			            	<h3 style="display: inline-block;">{{ ucfirst($country->name) }}</h3>
 			            	<h3 style="display: inline-block;" class="pull-right">${{ $country->price }}</h3>
-			            	<p>{{ $country->description }}</p>
+			            	<p>{{ ucfirst($country->description) }}</p>
 			            	<span style="font-size: 40px;">{{ ucfirst($country->artist) }}.</span>
 			            		<button style="margin-top: 16px; margin-left: 10px;" class="btn btn-primary pull-right">Add To Shopping Cart &nbsp;<i class="fa fa-cart-plus" aria-hidden="true"></i></button>
 			            	<button style="margin-top: 16px;" class="btn btn-danger pull-right">Delete</button>

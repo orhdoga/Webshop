@@ -23,15 +23,13 @@ class UploadRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = [
-            'artist' => 'required'
+        return [
+            'thumbnail_id' => 'required',
+            'artist' => 'required',
+            'name' => 'required',
+            'description' => 'required',
+            'media' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'price' => 'required'
         ];
-
-        $media = count($this->input('media'));
-        foreach(range(0, $media) as $index) {
-            $rules['media.' . $index] = 'required|image|mimes:jpeg,bmp,png|max:2000';
-        }
- 
-        return $rules;
     }
 }

@@ -37,9 +37,21 @@ class CountryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Thumbnail $thumbnail, UploadRequest $request)
+    public function store(Thumbnail $thumbnail, Country $country, UploadRequest $request)
     {
+        dd($request);
+
         $country = $thumbnail->countries()->create(request()->all());
+
+        if ($request->hasFile('media')) {
+            $media = $request->file('media');
+            $filename = time() . '.' . $media->getClientOriginalExtension();
+            \Image::make($media)->save(public_path('/images/country/' . $filename));
+            $country->media = $filename;
+            $country->save();
+        }
+
+        flash(e("You have successfully created " . $country->name), 'success');
 
         return redirect($thumbnail->id . '/countries');
     }

@@ -16,7 +16,7 @@ class CountriesTableSeeder extends Seeder
         $country = new Country;
         $country->thumbnail_id = 1;
         $country->artist = "Ph";
-        $country->name = "John Doe";
+        $country->name = "Title";
         $country->description = "This is a description.";
         $country->media = "country-1.jpg";
         $country->price = 30;
@@ -25,7 +25,7 @@ class CountriesTableSeeder extends Seeder
         $country2 = new Country;
         $country2->thumbnail_id = 2;
         $country2->artist = "Ph";
-        $country2->name = "John Doe";
+        $country2->name = "Title";
         $country2->description = "This is a description.";
         $country2->media = "country-2.jpg";
         $country2->price = 50;
@@ -34,7 +34,7 @@ class CountriesTableSeeder extends Seeder
         $country3 = new Country;
         $country3->thumbnail_id = 3;
         $country3->artist = "Ph";
-        $country3->name = "John Doe";
+        $country3->name = "Title";
         $country3->description = "This is a description.";
         $country3->media = "country-3.jpg";
         $country3->price = 80;

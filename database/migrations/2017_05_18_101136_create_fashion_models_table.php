@@ -15,13 +15,13 @@ class CreateFashionModelsTable extends Migration
     {
         Schema::create('fashion_models', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('thumbnail_id')->unsigned();
+            $table->integer('thumbnail_id')->unsigned()->nullable();
             $table->foreign('thumbnail_id')->references('id')->on('thumbnails');
-            $table->string('artist');
-            $table->string('name');
-            $table->text('description');
-            $table->string('media');
-            $table->integer('price');
+            $table->string('artist')->nullable();
+            $table->string('name')->nullable();
+            $table->text('description')->nullable();
+            $table->string('media')->nullable();
+            $table->integer('price')->nullable();
             $table->timestamps();
         });
     }
