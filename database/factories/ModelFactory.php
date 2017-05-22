@@ -27,7 +27,10 @@ $factory->define(App\Country::class, function (Faker\Generator $faker) {
     return [
         'thumbnail_id' => rand(1, 3),
         'artist' => 'Ph',
-        'media' => 'country-' . rand(1, 9) . '.jpg'
+        'name' => $faker->name,
+        'description' => 'This is a description.',
+        'media' => 'country-' . rand(1, 9) . '.jpg',
+        'price' => rand(50, 300)
     ];
 });
 
@@ -35,7 +38,10 @@ $factory->define(App\FashionModel::class, function (Faker\Generator $faker) {
     return [
         'thumbnail_id' => rand(1, 3),
         'artist' => 'Ph',
-        'media' => 'fashionModel-' . rand(1, 9) . '.jpg'
+        'name' => $faker->name,
+        'description' => 'This is a description.',
+        'media' => 'fashionModel-' . rand(1, 9) . '.jpg',
+        'price' => rand(50, 300)
     ];
 });
 
@@ -43,6 +49,9 @@ $factory->define(App\News::class, function (Faker\Generator $faker) {
     return [
         'thumbnail_id' => rand(1, 3),
         'artist' => 'Ph',
-        'media' => 'news-' . rand(1, 9) . '.jpg'
+        'name' => $faker->name,
+        'description' => 'This is a description.',
+        'media' => 'news-' . rand(1, 9) . '.jpg',
+        'price' => rand(50, 300)
     ];
 });

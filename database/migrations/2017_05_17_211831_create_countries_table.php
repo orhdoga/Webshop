@@ -18,7 +18,10 @@ class CreateCountriesTable extends Migration
             $table->integer('thumbnail_id')->unsigned();
             $table->foreign('thumbnail_id')->references('id')->on('thumbnails');
             $table->string('artist');
+            $table->string('name');
+            $table->text('description');
             $table->string('media');
+            $table->integer('price');
             $table->timestamps();
         });
     }

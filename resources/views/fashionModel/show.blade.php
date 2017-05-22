@@ -30,10 +30,13 @@
 		                <img src="{{ url('images/fashionModel/' . $fashionModel->media) }}"
 		                style="height: 200px !important; width: 100% !important">
 			            <div class="caption">
-			            	<span style="font-size: 40px;">{{ $fashionModel->artist }}.</span>
+			            	<h3 style="display: inline-block;">{{ $fashionModel->name }}</h3>
+			            	<h3 style="display: inline-block;" class="pull-right">${{ $fashionModel->price }}</h3>
+			            	<p>{{ $fashionModel->description }}</p>
+			            	<span style="font-size: 40px;">{{ ucfirst($fashionModel->artist) }}.</span>
 			            		<button style="margin-top: 16px; margin-left: 10px;" class="btn btn-primary pull-right">Add To Shopping Cart &nbsp;<i class="fa fa-cart-plus" aria-hidden="true"></i></button>
 			            	<button style="margin-top: 16px;" class="btn btn-danger pull-right">Delete</button>
-			            </div>  	            
+			            </div>   	            
 		            </div>  
 				</div>
 			</form>

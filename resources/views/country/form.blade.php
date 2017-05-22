@@ -27,7 +27,7 @@
 					<input type="hidden" name="thumbnail_id" value="{{ $thumbnail->id }}">
 
 					<div class="form-group">
-						<label>Artist</label>	
+						<label>Artist (initials)</label>	
 						<input type="text" class="form-control" name="artist" value="{{ old('artist') }}">
 					</div>	
 

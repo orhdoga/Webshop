@@ -26,24 +26,24 @@ Route::group(['middleware' => ['auth']], function () {
     
 	Route::group(['prefix' => '{thumbnail}'], function () {
 
-		Route::get("/countries", 'CountryController@show');
-		Route::get("/countries/upload", 'CountryController@upload');
-		Route::post("/countries", 'CountryController@store');		
+		Route::get('/countries', 'CountryController@show');
+		Route::get('/countries/upload', 'CountryController@upload');
+		Route::post('/countries', 'CountryController@store');		
 
-		Route::get("/models", 'FashionModelController@show');
-		Route::get("/models/upload", 'FashionModelController@upload');
+		Route::get('/models', 'FashionModelController@show');
+		Route::get('/models/upload', 'FashionModelController@upload');
 		
-		Route::get("/news", "NewsController@show");
-		Route::get("/news/upload", 'NewsController@upload');
+		Route::get('/news', 'NewsController@show');
+		Route::get('/news/upload', 'NewsController@upload');
 
-		Route::delete("/countries/{country}/delete", 'CountryController@destroy');
-		Route::delete("/models/{fashionModel}/delete", 'FashionModelController@destroy');
-		Route::delete("/news/{newsItem}/delete", 'NewsController@destroy');
+		Route::delete('/countries/{country}/delete', 'CountryController@destroy');
+		Route::delete('/models/{fashionModel}/delete', 'FashionModelController@destroy');
+		Route::delete('/news/{newsItem}/delete', 'NewsController@destroy');
 
 	});
 
+	Route::get('/shopping-cart', function () {
+		return view('shoppingCart');
+	});
+
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

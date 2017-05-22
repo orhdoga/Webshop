@@ -17,7 +17,7 @@
 
 	</div>
 
-	<hr>	
+	<hr>
 
 	<div class="row">
 
@@ -27,10 +27,13 @@
 				{{ method_field('DELETE') }}
 				<div class="col-md-4" style="margin-top: 15px;">
 		            <div class="thumbnail">
-		                <img src="{{ url('images/news/' . $newsItem->media) }}"
+		                <img src="{{ url('images/news/' . $newsItem->media) }}" 
 		                style="height: 200px !important; width: 100% !important">
 			            <div class="caption">
-			            	<span style="font-size: 40px;">{{ $newsItem->artist }}.</span>
+			            	<h3 style="display: inline-block;">{{ $newsItem->name }}</h3>
+			            	<h3 style="display: inline-block;" class="pull-right">${{ $newsItem->price }}</h3>
+			            	<p>{{ $newsItem->description }}</p>
+			            	<span style="font-size: 40px;">{{ ucfirst($newsItem->artist) }}.</span>
 			            		<button style="margin-top: 16px; margin-left: 10px;" class="btn btn-primary pull-right">Add To Shopping Cart &nbsp;<i class="fa fa-cart-plus" aria-hidden="true"></i></button>
 			            	<button style="margin-top: 16px;" class="btn btn-danger pull-right">Delete</button>
 			            </div>  	            
