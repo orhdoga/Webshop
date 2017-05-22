@@ -44,6 +44,10 @@ Route::group(['middleware' => ['auth']], function () {
 
 	});
 
+	Route::get('/countries/{id}/add-to-cart', 'CountryController@getAddToCart')->name('country.addToCart');
+	Route::get('/models/{id}/add-to-cart', 'FashionModelController@getAddToCart')->name('fashionModel.addToCart');
+	Route::get('/news/{id}/add-to-cart', 'NewsController@getAddToCart')->name('news.addToCart');
+
 	Route::get('/shopping-cart', function () {
 		return view('shoppingCart');
 	});

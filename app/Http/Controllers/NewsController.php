@@ -4,13 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Cart;
 use App\Thumbnail;
 use App\News;
 
+use Session;
 use App\Http\Requests\UploadRequest;
 
 class NewsController extends Controller
 {
+    public function getAddToCart(Request $request, $id)
+    {
+        $news = News::find($id);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($news, $news->id);
+
+        $request->session()->put('cart', $cart);
+
+        flash(e("You have successfully added " . $news->name . " to the Shopping Card"), 'success');
+
+        return back();
+    }    
+
     public function show(Thumbnail $thumbnail) 
     {
     	$news = $thumbnail->news()->paginate(9);

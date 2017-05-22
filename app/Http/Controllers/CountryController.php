@@ -4,13 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Cart;
 use App\Thumbnail;
 use App\Country;
 
+use Session;
 use App\Http\Requests\UploadRequest;
 
 class CountryController extends Controller
 {
+    public function getAddToCart(Request $request, $id)
+    {
+        $country = Country::find($id);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($country, $country->id);
+
+        $request->session()->put('cart', $cart);
+
+        flash(e("You have successfully added " . $country->name . " to the Shopping Card"), 'success');
+
+        return back();
+    }
+
     /**
      * Display a listing of the resource.
      *
