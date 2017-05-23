@@ -23,6 +23,23 @@
         				<strong>{{ $country['item']['name'] }}</strong>
         				<span class="label label-success">${{ $country['price'] }}</span>
         				<span class="badge">{{ $country['qty']}}</span>
+    				
+	    				<div class="btn-group">
+	               			<button class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">
+	                 			Action <span class="caret"></span>
+	                 		</button>
+		                 	<ul class="dropdown-menu">
+		                   		<li>
+		                   			<a href="{{ route('country.reduceByOne', ['id' => $country['item']['id']]) }}">Reduce By 1
+		                   			</a>
+								</li>
+		                    	<li>
+		                    		<a href="{{ route('country.remove', ['id' => $country['item']['id']]) }}">
+										Reduce By All
+									</a>
+		                      	</li>
+		                 	</ul>
+	            		</div>
     				</li>
               	@endforeach
            </ul>

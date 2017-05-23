@@ -30,7 +30,7 @@ class CountryController extends Controller
         // Then put that on $cart.
         $request->session()->put('cart', $cart);
 
-        dd($request->session()->get('cart'));
+        // dd($request->session()->get('cart'));
 
         flash(e("You have successfully added " . $country->name . " to the Shopping Card"), 'success');
 
