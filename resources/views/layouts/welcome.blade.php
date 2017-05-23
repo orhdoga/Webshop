@@ -58,7 +58,7 @@
                             <li><a href="{{ route('register') }}"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp; Register</a></li>
                         @else
                             <li><a href="{{ url('/shopping-cart') }}"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp; Shopping Cart 
-                                &nbsp;<span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span></a>
+                                &nbsp;<span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : 0 }}</span></a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

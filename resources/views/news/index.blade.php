@@ -10,7 +10,7 @@
 
 			<h1 style="display: inline-block">News</h1>
 			<h2 style="display: inline-block" class="pull-right">
-				<a href="{{ url($thumbnail->id . '/' . 'news' . '/upload') }}">Upload media <i class="fa fa-upload" aria-hidden="true"></i></a>
+				<a href="{{ url($thumbnail->id . '/' . 'news' . '/create') }}">Upload media <i class="fa fa-upload" aria-hidden="true"></i></a>
 			</h2>
 
 		</div>
@@ -23,7 +23,7 @@
 
 		@foreach ($news as $newsItem)
 
-			<form method="POST" action="{{ url($thumbnail->id . '/news/' . $newsItem->id . '/delete') }}">
+			<form method="POST" action="{{ url('/news/' . $newsItem->id . '/delete') }}">
 				{{ csrf_field() }}
 				{{ method_field('DELETE') }}
 				
@@ -37,7 +37,7 @@
 			            <div class="caption">
 			            	<h3 style="display: inline-block;">{{ ucfirst($newsItem->name) }}</h3>
 			            	<h3 style="display: inline-block;" class="pull-right">${{ $newsItem->price }}</h3>
-			            	
+
 			            	<p>{{ ucfirst($newsItem->description) }}</p>
 			            	<span style="font-size: 40px;">{{ ucfirst($newsItem->artist) }}.</span>
 

@@ -8,22 +8,22 @@
 
 		<div class="col-md-12">
 
-			<h1 style="display: inline-block">Models</h1>
+			<h1 style="display: inline-block">Countries</h1>
 			<h2 style="display: inline-block" class="pull-right">
-				<a href="{{ url($thumbnail->id . '/' . 'models' . '/upload') }}">Upload media <i class="fa fa-upload" aria-hidden="true"></i></a>
+				<a href="{{ url($thumbnail->id . '/' . 'countries' . '/create') }}">Upload media <i class="fa fa-upload" aria-hidden="true"></i></a>
 			</h2>
 
 		</div>
 
 	</div>
 
-	<hr>		
+	<hr>
 
 	<div class="row">
 
-		@foreach ($fashionModels as $fashionModel)
+		@foreach ($countries as $country)
 
-			<form method="POST" action="{{ url($thumbnail->id . '/models/' . $fashionModel->id . '/delete') }}">
+			<form method="POST" action="{{ url('/countries/' . $country->id . '/delete') }}">
 				{{ csrf_field() }}
 				{{ method_field('DELETE') }}
 				
@@ -31,17 +31,17 @@
 
 		            <div class="thumbnail">
 
-		                <img src="{{ url('images/fashionModel/' . $fashionModel->media) }}" 
+		                <img src="{{ url('images/country/' . $country->media) }}" 
 		                style="height: 200px !important; width: 100% !important">
 
 			            <div class="caption">
-			            	<h3 style="display: inline-block;">{{ ucfirst($fashionModel->name) }}</h3>
-			            	<h3 style="display: inline-block;" class="pull-right">${{ $fashionModel->price }}</h3>
+			            	<h3 style="display: inline-block;">{{ ucfirst($country->name) }}</h3>
+			            	<h3 style="display: inline-block;" class="pull-right">${{ $country->price }}</h3>
 			            	
-			            	<p>{{ ucfirst($fashionModel->description) }}</p>
-			            	<span style="font-size: 40px;">{{ ucfirst($fashionModel->artist) }}.</span>
+			            	<p>{{ ucfirst($country->description) }}</p>
+			            	<span style="font-size: 40px;">{{ ucfirst($country->artist) }}.</span>
 
-			            	<a href="{{ route('fashionModel.addToCart', ['id' => $fashionModel->id]) }}" 
+			            	<a href="{{ route('country.addToCart', ['id' => $country->id]) }}" 
 			            	style="margin-top: 16px; margin-left: 10px;" class="btn btn-primary pull-right">
 			            		Add To Shopping Cart &nbsp;<i class="fa fa-cart-plus" aria-hidden="true"></i>
 			            	</a>
@@ -64,7 +64,7 @@
 	<div class="row">
 
 		<div class="col-md-12">
-			<span class="pull-right">{{ $fashionModels->links() }}</span>
+			<span class="pull-right">{{ $countries->links() }}</span>
 		</div>
 
 	</div>

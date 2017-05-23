@@ -13,6 +13,16 @@ use App\Http\Requests\UploadRequest;
 
 class FashionModelController extends Controller
 {
+    public function index(Thumbnail $thumbnail)
+    {
+        $fashionModels = $thumbnail->fashionModels()->paginate(9);
+
+        return view('fashionModel.index', [
+            'thumbnail' => $thumbnail,
+            'fashionModels' => $fashionModels
+        ]);
+    }
+
     public function getAddToCart(Request $request, $id)
     {
         $fashionModel = FashionModel::find($id);
@@ -27,17 +37,7 @@ class FashionModelController extends Controller
         return back();
     }
 
-    public function show(Thumbnail $thumbnail)
-    {
-    	$fashionModels = $thumbnail->fashionModels()->paginate(9);
-
-        return view('fashionModel.show', [
-            'thumbnail' => $thumbnail,
-            'fashionModels' => $fashionModels
-        ]);
-    }
-
-    public function upload(Thumbnail $thumbnail)
+    public function create(Thumbnail $thumbnail)
     {
         return view('fashionModel.form', compact('thumbnail'));
     }
@@ -59,7 +59,7 @@ class FashionModelController extends Controller
         return redirect($thumbnail->id . '/models');
     }
 
-    public function destroy(Thumbnail $thumbnail, FashionModel $fashionModel)
+    public function destroy(FashionModel $fashionModel)
     {
         $fashionModel->delete();
 

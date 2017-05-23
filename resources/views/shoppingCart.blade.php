@@ -2,63 +2,62 @@
 
 @section('content')
 
-<div class="container">
+ @if (Session::has('cart'))
 
 	<div class="row">
+		
 		<div class="col-md-6 col-md-offset-3">
 			<h1>Shopping Cart</h1>
 			<hr>
 		</div>
+
 	</div>	
 
-	<div class="row">
+    <div class="row">
+      
+    	<div class="col-md-6 col-md-offset-3">
+        	
+        	<ul class="list-group">
+            	@foreach($countries as $country)
+                	<li class="list-group-item">
+        				<strong>{{ $country['item']['name'] }}</strong>
+        				<span class="label label-success">${{ $country['price'] }}</span>
+        				<span class="badge">{{ $country['qty']}}</span>
+    				</li>
+              	@endforeach
+           </ul>
 
-		<div class="col-md-6 col-md-offset-3">
+       </div>
 
-			<ul class="list-group">
-				<li class="list-group-item">
-					<strong>Test</strong>
-					<span class="label label-success">$20</span>
-					<span class="badge">2</span>
-				</li>
+    </div>
 
-				<li class="list-group-item">
-					<strong>Test</strong>
-					<span class="label label-success">$20</span>
-					<span class="badge">2</span>
-				</li>
 
-				<li class="list-group-item">
-					<strong>Test</strong>
-					<span class="label label-success">$20</span>
-					<span class="badge">2</span>
-				</li>
+    <div class="row">
 
-				<li class="list-group-item">
-					<strong>Test</strong>
-					<span class="label label-success">$20</span>
-					<span class="badge">2</span>
-				</li>
-			</ul>
+       <div class="col-md-6 col-md-offset-3">
+             <strong>Total: ${{ $totalPrice }}</strong>
+       </div>
 
-		</div>
+    </div>
 
-	</div>
+    <hr>
 
-	<div class="row">
-		<div class="col-md-6 col-md-offset-3">
-			<strong>Total: </strong>$50
-		</div>
-	</div>
+    <div class="row">
 
-	<hr>
+       <div class="col-md-6 col-md-offset-3">
+         <a href="#" type="button" class="btn btn-success">Checkout</a>
+       </div>
+
+    </div>
+
+@else
 
 	<div class="row">
-		<div class="col-md-6 col-md-offset-3">
-			<button class="btn btn-primary">Checkout</button>
-		</div>
-	</div>	
-	
-</div>		
+    	<div class="col-md-6 col-md-offset-3">
+        	<h2 class="title-page">No Items In the Cart!</h2>
+        </div>
+    </div>
+
+@endif
 
 @endsection

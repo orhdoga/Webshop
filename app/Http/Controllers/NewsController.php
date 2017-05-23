@@ -13,6 +13,16 @@ use App\Http\Requests\UploadRequest;
 
 class NewsController extends Controller
 {
+    public function index(Thumbnail $thumbnail) 
+    {
+        $news = $thumbnail->news()->paginate(9);
+
+        return view('news.index', [
+            'thumbnail' => $thumbnail,
+            'news' => $news
+        ]);
+    }
+
     public function getAddToCart(Request $request, $id)
     {
         $news = News::find($id);
@@ -25,19 +35,9 @@ class NewsController extends Controller
         flash(e("You have successfully added " . $news->name . " to the Shopping Card"), 'success');
 
         return back();
-    }    
-
-    public function show(Thumbnail $thumbnail) 
-    {
-    	$news = $thumbnail->news()->paginate(9);
-
-        return view('news.show', [
-            'thumbnail' => $thumbnail,
-            'news' => $news
-        ]);
     }
 
-    public function upload(Thumbnail $thumbnail)
+    public function create(Thumbnail $thumbnail)
     {
         return view('news.form', compact('thumbnail'));
     }
@@ -59,7 +59,7 @@ class NewsController extends Controller
         return redirect($thumbnail->id . '/news');
     }
 
-    public function destroy(Thumbnail $thumbnail, News $newsItem)
+    public function destroy(News $newsItem)
     {
         $newsItem->delete();
 
