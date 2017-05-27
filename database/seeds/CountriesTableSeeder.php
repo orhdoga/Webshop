@@ -14,7 +14,6 @@ class CountriesTableSeeder extends Seeder
     public function run()
     {
         $country = new Country;
-        $country->thumbnail_id = 1;
         $country->artist = "Ph";
         $country->name = "Title";
         $country->description = "This is a description.";
@@ -22,24 +21,22 @@ class CountriesTableSeeder extends Seeder
         $country->price = 30;
         $country->save();
 
+        $country1 = new Country;
+        $country1->artist = "Ph";
+        $country1->name = "Title";
+        $country1->description = "This is a description.";
+        $country1->media = "country-2.jpg";
+        $country1->price = 50;
+        $country1->save();
+
         $country2 = new Country;
-        $country2->thumbnail_id = 2;
         $country2->artist = "Ph";
         $country2->name = "Title";
         $country2->description = "This is a description.";
-        $country2->media = "country-2.jpg";
-        $country2->price = 50;
+        $country2->media = "country-3.jpg";
+        $country2->price = 80;
         $country2->save();
 
-        $country3 = new Country;
-        $country3->thumbnail_id = 3;
-        $country3->artist = "Ph";
-        $country3->name = "Title";
-        $country3->description = "This is a description.";
-        $country3->media = "country-3.jpg";
-        $country3->price = 80;
-        $country3->save();
-
-        factory(Country::class, 20)->create();
+        factory(Country::class, 9)->create();
     }
 }

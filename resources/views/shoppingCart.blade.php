@@ -30,7 +30,7 @@
 	                 		</button>
 		                 	<ul class="dropdown-menu">
 		                   		<li>
-		                   			<a href="{{ route('country.reduceByOne', ['id' => $country['item']['id']]) }}">Reduce By 1
+		                   			<a href="{{ route('country.reduceByOne', ['id' => $country['item']['id']]) }}">   Reduce by 1
 		                   			</a>
 								</li>
 		                    	<li>
@@ -50,28 +50,24 @@
 
 
     <div class="row">
-
        <div class="col-md-6 col-md-offset-3">
              <strong>Total: ${{ $totalPrice }}</strong>
        </div>
-
     </div>
 
     <hr>
 
     <div class="row">
-
        <div class="col-md-6 col-md-offset-3">
          <a href="#" type="button" class="btn btn-success">Checkout</a>
        </div>
-
     </div>
 
 @else
 
 	<div class="row">
     	<div class="col-md-6 col-md-offset-3">
-        	<h2 class="title-page">No Items In the Cart!</h2>
+        	<h2>No Items In the Cart!</h2>
         </div>
     </div>
 

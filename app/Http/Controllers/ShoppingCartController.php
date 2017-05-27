@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Session;
 use App\Cart;
+use Session;
 
 class ShoppingCartController extends Controller
 {
@@ -43,6 +43,7 @@ class ShoppingCartController extends Controller
         
         return back();
     }
+    
     public function getRemove($id)
     {
         // If user already add value we show it

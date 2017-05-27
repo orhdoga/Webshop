@@ -24,12 +24,11 @@ class UploadRequest extends FormRequest
     public function rules()
     {
         return [
-            'thumbnail_id' => 'required',
-            'artist' => 'required',
+            'artist' => 'required|max:4',
             'name' => 'required',
             'description' => 'required',
             'media' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'price' => 'required'
+            'price' => 'required|integer'
         ];
     }
 }

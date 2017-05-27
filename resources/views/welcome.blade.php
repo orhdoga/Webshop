@@ -31,26 +31,46 @@
 	</div>
 
 	<div class="row">
-		@foreach ($thumbnails as $thumbnail)
-		 		<div class="col-md-4">
-		            <div class="thumbnail">
-		                <img src="{{ url('images/welcome/' . $thumbnail->image) }}">
-		                <div class="caption">
-		                	<div class="text-center">
-					    		<a href="{{ url('/' . $thumbnail->id . '/countries') }}" class="tag">
-					    			Countries
-					    		</a>
-					    		<a href="{{ url('/' . $thumbnail->id . '/models') }}" class="tag">
-					    			Models
-					    		</a>
-					    		<a href="{{ url('/' . $thumbnail->id . '/news') }}" class="tag">
-					    			News
-					    		</a>
-				    		</div>
-		                </div>
-		            </div>    
-		        </div>
-		@endforeach
+
+ 		<div class="col-md-4">
+            <a href="{{ url('/countries') }}">
+	            <div class="thumbnail">
+	                <img src="{{ url('images/welcome/country.jpg') }}">
+	                <div class="caption">
+	                	<div class="text-center">
+				    		<span class="tag">Countries</span>
+			    		</div>
+	                </div>
+	            </div>    
+  			</a>
+        </div>
+
+ 		<div class="col-md-4">
+            <a href="{{ url('/models') }}">
+	            <div class="thumbnail">
+	                <img src="{{ url('images/welcome/model.jpg') }}">
+	                <div class="caption">
+	                	<div class="text-center">
+				    		<span class="tag">Models</span>
+			    		</div>
+	                </div>
+	            </div>    
+  			</a>
+        </div>
+
+ 		<div class="col-md-4">
+            <a href="{{ url('/news') }}">
+	            <div class="thumbnail">
+	                <img src="{{ url('images/welcome/newsItem.jpg') }}">
+	                <div class="caption">
+	                	<div class="text-center">
+				    		<span class="tag">News</span>
+			    		</div>
+	                </div>
+	            </div>    
+  			</a>
+        </div>
+
 	</div>
 	
 </div>	

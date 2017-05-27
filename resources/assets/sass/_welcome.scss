@@ -3,6 +3,19 @@
 	height: 100vh !important;
 }
 
+.carousel-caption {
+    top: 0;
+    height: 100%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+} 
+
+.full-width {
+    width: 100%;
+}   
+
 .thumbnail {
 	border-radius: 10px;
 }

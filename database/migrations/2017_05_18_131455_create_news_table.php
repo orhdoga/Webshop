@@ -15,8 +15,6 @@ class CreateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('thumbnail_id')->unsigned()->nullable();
-            $table->foreign('thumbnail_id')->references('id')->on('thumbnails');
             $table->string('artist')->nullable();
             $table->string('name')->nullable();
             $table->text('description')->nullable();

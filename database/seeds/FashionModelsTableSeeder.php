@@ -14,7 +14,6 @@ class FashionModelsTableSeeder extends Seeder
     public function run()
     {
         $fashionModel = new FashionModel;
-        $fashionModel->thumbnail_id = 1;
         $fashionModel->artist = "Ph";
         $fashionModel->name = "Title";
         $fashionModel->description = "This is a description.";
@@ -22,24 +21,22 @@ class FashionModelsTableSeeder extends Seeder
         $fashionModel->price = 30;
         $fashionModel->save();
 
+        $fashionModel1 = new FashionModel;
+        $fashionModel1->artist = "Ph";
+        $fashionModel1->name = "Title";
+        $fashionModel1->description = "This is a description.";
+        $fashionModel1->media = "fashionModel-2.jpg";
+        $fashionModel1->price = 50;
+        $fashionModel1->save();
+
         $fashionModel2 = new FashionModel;
-        $fashionModel2->thumbnail_id = 2;
         $fashionModel2->artist = "Ph";
         $fashionModel2->name = "Title";
         $fashionModel2->description = "This is a description.";
-        $fashionModel2->media = "fashionModel-2.jpg";
-        $fashionModel2->price = 50;
+        $fashionModel2->media = "fashionModel-3.jpg";
+        $fashionModel2->price = 80;
         $fashionModel2->save();
 
-        $fashionModel3 = new FashionModel;
-        $fashionModel3->thumbnail_id = 3;
-        $fashionModel3->artist = "Ph";
-        $fashionModel3->name = "Title";
-        $fashionModel3->description = "This is a description.";
-        $fashionModel3->media = "fashionModel-3.jpg";
-        $fashionModel3->price = 80;
-        $fashionModel3->save();
-
-        factory(FashionModel::class, 20)->create();
+        factory(FashionModel::class, 9)->create();
     }
 }

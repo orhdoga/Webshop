@@ -4,14 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Cart;
-use App\Thumbnail;
-use App\Country;
+use App\{Cart, Country};
+use Session;
 
 use App\Traits\UploadCountry;
-
 use App\Http\Requests\UploadRequest;
-use Session;
 
 class CountryController extends Controller
 {
@@ -42,13 +39,10 @@ class CountryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Thumbnail $thumbnail)
+    public function index()
     {
-        $countries = $thumbnail->countries()->paginate(9);
-
         return view('country.index', [
-            'thumbnail' => $thumbnail,
-            'countries' => $countries
+            'countries' => Country::paginate(9)
         ]);
     }
 
@@ -57,9 +51,9 @@ class CountryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Thumbnail $thumbnail)
+    public function create()
     {
-        return view('country.form', compact('thumbnail'));
+        return view('country.form');
     }
 
     /**
@@ -68,21 +62,26 @@ class CountryController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Thumbnail $thumbnail, Country $country, UploadRequest $request)
+    public function store(Country $country, UploadRequest $request)
     {
-        $country = $thumbnail->countries()->create($request->all());
+        $country = Country::create([
+            'artist' => $request->input('artist'),
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'price' => $request->input('price')
+        ]);
 
         if ($request->hasFile('media')) {
             $media = $request->file('media');
             $filename = time() . '.' . $media->getClientOriginalExtension();
-            \Image::make($media)->save(public_path('/images/country/' . $filename));
+            \Image::make($media)->save(public_path('/media/countries/' . $filename));
             $country->media = $filename;
             $country->save();
         }
 
         flash(e("You have successfully created " . $country->name), 'success');
 
-        return redirect($thumbnail->id . '/countries');
+        return redirect('/countries');
     }
 
     /**

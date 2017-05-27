@@ -6,7 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Country extends Model
 {
-	protected $fillable = ['thumbnail_id', 'artist', 'name', 'description', 'media', 'price']; // Tell HTTP 
-}																							   // request which
-																							   // parameters to
-																							   // expect.	 
+	protected $fillable = ['artist', 'name', 'description', 'media', 'price']; // Tell HTTP 
+																			   // request which
+																			   // parameters to
+																			   // expect.	 
+	/*
+	public function setMedia($media) 
+	{
+	    $filename = time() . '.' . $media->getClientOriginalExtension();
+	    \Image::make($media)->save(public_path('/images/countries/' . $filename));
+	    $this->media = $filename;
+	    $this->save();
+	}
+	*/
+}

@@ -4,22 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Cart;
-use App\Thumbnail;
-use App\FashionModel;
-
+use App\{Cart, FashionModel};
 use Session;
+
 use App\Http\Requests\UploadRequest;
 
 class FashionModelController extends Controller
 {
-    public function index(Thumbnail $thumbnail)
+    public function index()
     {
-        $fashionModels = $thumbnail->fashionModels()->paginate(9);
-
         return view('fashionModel.index', [
-            'thumbnail' => $thumbnail,
-            'fashionModels' => $fashionModels
+            'fashionModels' => FashionModel::paginate(9)
         ]);
     }
 
@@ -37,26 +32,27 @@ class FashionModelController extends Controller
         return back();
     }
 
-    public function create(Thumbnail $thumbnail)
+    public function create()
     {
-        return view('fashionModel.form', compact('thumbnail'));
+        return view('fashionModel.form');
     }
 
-    public function store(Thumbnail $thumbnail, FashionModel $fashionModel, UploadRequest $request)
+    public function store(FashionModel $fashionModel, UploadRequest $request)
     {
-        $fashionModel = $thumbnail->fashionModels()->create(request()->all());
+        $fashionModel = FashionModel::create($request->all());
 
         if ($request->hasFile('media')) {
             $media = $request->file('media');
             $filename = time() . '.' . $media->getClientOriginalExtension();
-            \Image::make($media)->save(public_path('/images/fashionModel/' . $filename));
+            \Image::make($media)->save(public_path('/media/fashionModels/' . $filename));
             $fashionModel->media = $filename;
-            $fashionModel->save();
         }
+
+        $fashionModel->save();
 
         flash(e("You have successfully created " . $fashionModel->name), 'success');
 
-        return redirect($thumbnail->id . '/models');
+        return redirect('/models');
     }
 
     public function destroy(FashionModel $fashionModel)

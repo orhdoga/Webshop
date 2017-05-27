@@ -21,10 +21,8 @@
 
 			<div class="well">
 
-				<form method="POST" action="{{ url($thumbnail->id . '/countries') }}" enctype="multipart/form-data">
+				<form method="POST" action="{{ url('/countries') }}" enctype="multipart/form-data">
 					{{ csrf_field() }}
-
-					<input type="hidden" name="thumbnail_id" value="{{ $thumbnail->id }}">
 
 					<div class="form-group">
 						<label for="artist">Artist (initials)</label>	

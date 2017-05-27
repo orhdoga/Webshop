@@ -1,6 +1,11 @@
 html {
 	width: auto;
 	overflow-x: hidden;
+	height: 100%;
+}
+
+body {
+	height: 100%;
 }
 
 .container-fluid {
@@ -11,4 +16,8 @@ html {
 @font-face {
     font-family: Roboto-Light;
     src: url('/fonts/roboto/Roboto-Light.ttf');
+}
+
+video {
+	border-radius: 10px !important;
 }

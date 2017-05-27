@@ -4,22 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Cart;
-use App\Thumbnail;
-use App\News;
-
+use App\{Cart, News};
 use Session;
+
 use App\Http\Requests\UploadRequest;
 
 class NewsController extends Controller
 {
-    public function index(Thumbnail $thumbnail) 
+    public function index() 
     {
-        $news = $thumbnail->news()->paginate(9);
-
         return view('news.index', [
-            'thumbnail' => $thumbnail,
-            'news' => $news
+            'news' => News::paginate(9)
         ]);
     }
 
@@ -37,26 +32,27 @@ class NewsController extends Controller
         return back();
     }
 
-    public function create(Thumbnail $thumbnail)
+    public function create()
     {
-        return view('news.form', compact('thumbnail'));
+        return view('news.form');
     }
 
-    public function store(Thumbnail $thumbnail, News $news, UploadRequest $request)
+    public function store(News $news, UploadRequest $request)
     {
-        $news = $thumbnail->news()->create(request()->all());
+        $news->fill($request->all());
 
         if ($request->hasFile('media')) {
             $media = $request->file('media');
             $filename = time() . '.' . $media->getClientOriginalExtension();
-            \Image::make($media)->save(public_path('/images/news/' . $filename));
+            \Image::make($media)->save(public_path('/media/news/' . $filename));
             $news->media = $filename;
-            $news->save();
         }
+
+        $news->save();
 
         flash(e("You have successfully created " . $news->name), 'success');
 
-        return redirect($thumbnail->id . '/news');
+        return redirect('/news');
     }
 
     public function destroy(News $newsItem)
