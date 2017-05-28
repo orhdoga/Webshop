@@ -19,77 +19,49 @@
 
 	<hr>
 
-	<div class="row">
+	<div class="row" id="fadeOne">
 
-		<div class="col-md-4">
-			<div class="thumbnail">
-				<video autoplay loop muted name="media" style="height: 200px !important; width: 100% !important;">
-					<source src="{{ url('media/news/newsItem-1.mp4') }}" type="video/mp4">
-				</video>
-				<div class="caption">
-	            	<h3 style="display: inline-block;">Test</h3>
-	            	<h3 style="display: inline-block;" class="pull-right">$30</h3>
-	            	
-	            	<p>Test</p>
-	            	<span style="font-size: 40px;">Ph.</span>
+		@foreach ($firstNewsItems as $firstNewsItem)
 
-	            	<a href="#" 
-	            	style="margin-top: 16px; margin-left: 10px;" class="btn btn-primary pull-right">
-	            		Add To Shopping Cart &nbsp;<i class="fa fa-cart-plus" aria-hidden="true"></i>
-	            	</a>
+			<form method="POST" action="{{ url('/countries/' . $firstNewsItem->id . '/delete') }}">
+				{{ csrf_field() }}
+				{{ method_field('DELETE') }}
 
-	            	<button style="margin-top: 16px;" class="btn btn-danger pull-right">Delete</button>
-	            </div>  
-        	</div>    
-		</div>
+				<div class="col-md-4" style="margin-top: 15px;">
 
-		<div class="col-md-4">
-			<div class="thumbnail">
-				<video autoplay loop muted name="media" style="height: 200px !important; width: 100% !important;">
-					<source src="{{ url('media/news/newsItem-2.mp4') }}" type="video/mp4">
-				</video>
-				<div class="caption">
-	            	<h3 style="display: inline-block;">Test</h3>
-	            	<h3 style="display: inline-block;" class="pull-right">$30</h3>
-	            	
-	            	<p>Test</p>
-	            	<span style="font-size: 40px;">Ph.</span>
+					<div class="thumbnail">
 
-	            	<a href="#" 
-	            	style="margin-top: 16px; margin-left: 10px;" class="btn btn-primary pull-right">
-	            		Add To Shopping Cart &nbsp;<i class="fa fa-cart-plus" aria-hidden="true"></i>
-	            	</a>
+						<video autoplay loop muted poster="{{ url('media/placeholder.jpg') }}" name="media" style="height: 200px !important; width: 100% !important;">
+							<source src="{{ url('media/news/' . $firstNewsItem->media) }}" type="video/mp4">
+						</video>
 
-	            	<button style="margin-top: 16px;" class="btn btn-danger pull-right">Delete</button>
-	            </div>  
-        	</div>    
-		</div>
+						<div class="caption">
+			            	<h3 style="display: inline-block;">{{ $firstNewsItem->name }}</h3>
+			            	<h3 style="display: inline-block;" class="pull-right">${{ $firstNewsItem->price }}</h3>
+			            	
+			            	<p>{{ $firstNewsItem->description }}</p>
+			            	<span style="font-size: 40px;">{{ $firstNewsItem->artist }}</span>
 
-		<div class="col-md-4">
-			<div class="thumbnail">
-				<video autoplay loop muted name="media" style="height: 200px !important; width: 100% !important;">
-					<source src="{{ url('media/news/newsItem-3.mp4') }}" type="video/mp4">
-				</video>
-				<div class="caption">
-	            	<h3 style="display: inline-block;">Test</h3>
-	            	<h3 style="display: inline-block;" class="pull-right">$30</h3>
-	            	
-	            	<p>Test</p>
-	            	<span style="font-size: 40px;">Ph.</span>
+			            	<a href="{{ route('country.addToCart', ['id' => $firstNewsItem->id]) }}" 
+			            	style="margin-top: 16px; margin-left: 10px;" 
+			            	class="btn btn-primary pull-right">
+			            		Add To Shopping Cart &nbsp;<i class="fa fa-cart-plus" aria-hidden="true"></i>
+			            	</a>
 
-	            	<a href="#" 
-	            	style="margin-top: 16px; margin-left: 10px;" class="btn btn-primary pull-right">
-	            		Add To Shopping Cart &nbsp;<i class="fa fa-cart-plus" aria-hidden="true"></i>
-	            	</a>
+			            	<button style="margin-top: 16px;" class="btn btn-danger pull-right">Delete</button>
+			            </div> 
 
-	            	<button style="margin-top: 16px;" class="btn btn-danger pull-right">Delete</button>
-	            </div>  
-        	</div>    
-		</div>
+		        	</div> 
+
+				</div>
+
+			</form>	
+
+		@endforeach
 
 	</div>					
 
-	<div class="row">
+	<div class="row" id="fadeOne">
 
 		@foreach ($news as $newsItem)
 
@@ -130,14 +102,6 @@
 	</div>
 
 	<hr>
-
-	<div class="row">
-
-		<div class="col-md-12">
-			<span class="pull-right">{{ $news->links() }}</span>
-		</div>
-
-	</div>
 
 </div>
 

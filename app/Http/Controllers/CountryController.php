@@ -41,8 +41,18 @@ class CountryController extends Controller
      */
     public function index()
     {
+        $collection = Country::all();
+        // The splice method removes and returns a slice of items starting at the specified index.
+        $chunk = $collection->splice(3);
+        $firstCountries = $collection->all();
+
+        $collection = Country::all();
+        // The skip method returns a slice of the collection starting at the given index.
+        $countries = $collection->slice(3);
+
         return view('country.index', [
-            'countries' => Country::paginate(9)
+            'firstCountries' => $firstCountries,
+            'countries' => $countries
         ]);
     }
 

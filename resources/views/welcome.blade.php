@@ -32,10 +32,10 @@
 
 	<div class="row">
 
- 		<div class="col-md-4">
+ 		<div class="col-md-4" id="fadeThumbOne">
             <a href="{{ url('/countries') }}">
 	            <div class="thumbnail">
-	                <img src="{{ url('images/welcome/country.jpg') }}">
+	                <img src="{{ url('media/welcome/country.jpg') }}">
 	                <div class="caption">
 	                	<div class="text-center">
 				    		<span class="tag">Countries</span>
@@ -45,10 +45,10 @@
   			</a>
         </div>
 
- 		<div class="col-md-4">
+ 		<div class="col-md-4" id="fadeThumbTwo">
             <a href="{{ url('/models') }}">
 	            <div class="thumbnail">
-	                <img src="{{ url('images/welcome/model.jpg') }}">
+	                <img src="{{ url('media/welcome/model.jpg') }}">
 	                <div class="caption">
 	                	<div class="text-center">
 				    		<span class="tag">Models</span>
@@ -58,10 +58,10 @@
   			</a>
         </div>
 
- 		<div class="col-md-4">
+ 		<div class="col-md-4" id="fadeThumbThree">
             <a href="{{ url('/news') }}">
 	            <div class="thumbnail">
-	                <img src="{{ url('images/welcome/newsItem.jpg') }}">
+	                <img src="{{ url('media/welcome/newsItem.jpg') }}">
 	                <div class="caption">
 	                	<div class="text-center">
 				    		<span class="tag">News</span>

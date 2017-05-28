@@ -17,7 +17,7 @@ class NewsTableSeeder extends Seeder
         $news->artist = "Ph";
         $news->name = "Title";
         $news->description = "This is a description.";
-        $news->media = "newsItem-1.jpg";
+        $news->media = "newsItem-1.mp4";
         $news->price = 30;
         $news->save(); 
 
@@ -25,7 +25,7 @@ class NewsTableSeeder extends Seeder
         $news1->artist = "Ph";
         $news1->name = "Title"; 
         $news1->description = "This is a description."; 
-        $news1->media = "newsItem-2.jpg";
+        $news1->media = "newsItem-2.mp4";
         $news1->price = 50;
         $news1->save(); 
 
@@ -33,7 +33,7 @@ class NewsTableSeeder extends Seeder
         $news2->artist = "Ph";
         $news2->name = "Title";
         $news2->description = "This is a description.";
-        $news2->media = "newsItem-3.jpg";
+        $news2->media = "newsItem-3.mp4";
         $news2->price = 80;
         $news2->save();
 

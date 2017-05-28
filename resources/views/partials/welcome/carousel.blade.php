@@ -10,8 +10,8 @@
                 <div class="carousel-inner" role="listbox">
 
                     <div class="item active">
-                        <img src="images/welcome/example-1.jpg">
-                        <div class="carousel-caption">
+                        <img src="media/welcome/example-1.jpg">
+                        <div class="carousel-caption" id="fadeBanner">
                             <h1>Ph. Otto Graaf</h1>
                             <h3>Camera Obscura straat 101</h3>
                             <h3>0000 Digistad</h3>

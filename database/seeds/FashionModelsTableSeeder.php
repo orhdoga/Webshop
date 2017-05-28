@@ -17,7 +17,7 @@ class FashionModelsTableSeeder extends Seeder
         $fashionModel->artist = "Ph";
         $fashionModel->name = "Title";
         $fashionModel->description = "This is a description.";
-        $fashionModel->media = "fashionModel-1.jpg";
+        $fashionModel->media = "fashionModel-1.mp4";
         $fashionModel->price = 30;
         $fashionModel->save();
 
@@ -25,7 +25,7 @@ class FashionModelsTableSeeder extends Seeder
         $fashionModel1->artist = "Ph";
         $fashionModel1->name = "Title";
         $fashionModel1->description = "This is a description.";
-        $fashionModel1->media = "fashionModel-2.jpg";
+        $fashionModel1->media = "fashionModel-2.mp4";
         $fashionModel1->price = 50;
         $fashionModel1->save();
 
@@ -33,7 +33,7 @@ class FashionModelsTableSeeder extends Seeder
         $fashionModel2->artist = "Ph";
         $fashionModel2->name = "Title";
         $fashionModel2->description = "This is a description.";
-        $fashionModel2->media = "fashionModel-3.jpg";
+        $fashionModel2->media = "fashionModel-3.mp4";
         $fashionModel2->price = 80;
         $fashionModel2->save();
 

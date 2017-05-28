@@ -13,8 +13,18 @@ class FashionModelController extends Controller
 {
     public function index()
     {
+        $collection = FashionModel::all();
+        // The splice method removes and returns a slice of items starting at the specified index.
+        $chunk = $collection->splice(3);
+        $firstFashionModels = $collection->all();
+
+        $collection = FashionModel::all();
+        // The skip method returns a slice of the collection starting at the given index.
+        $fashionModels = $collection->slice(3);
+
         return view('fashionModel.index', [
-            'fashionModels' => FashionModel::paginate(9)
+            'firstFashionModels' => $firstFashionModels,
+            'fashionModels' => $fashionModels
         ]);
     }
 

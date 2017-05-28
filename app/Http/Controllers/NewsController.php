@@ -13,9 +13,19 @@ class NewsController extends Controller
 {
     public function index() 
     {
+        $collection = News::all();
+        // The splice method removes and returns a slice of items starting at the specified index.
+        $chunk = $collection->splice(3);
+        $firstNewsItems = $collection->all();
+
+        $collection = News::all();
+        // The skip method returns a slice of the collection starting at the given index.
+        $news = $collection->slice(3);
+
         return view('news.index', [
-            'news' => News::paginate(9)
-        ]);
+            'firstNewsItems' => $firstNewsItems,
+            'news' => $news
+        ]);    
     }
 
     public function getAddToCart(Request $request, $id)
