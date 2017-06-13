@@ -69,7 +69,7 @@ class FashionModelController extends Controller
     {
         $fashionModel->delete();
 
-        flash(e("You have successfully deleted " . $fashionModel->media), 'danger');
+        flash(e("You have successfully deleted " . $fashionModel->name), 'danger');
 
         return back();
     }

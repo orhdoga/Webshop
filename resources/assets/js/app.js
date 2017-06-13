@@ -18,6 +18,22 @@ Vue.component('example', require('./components/Example.vue'));
 const app = new Vue({
     el: '#app',
     data: {
-    	message: 'Hello, World!'
+    	message: 'Hello, World!',
+    	tasks: [
+			{ description: "Go to the store", completed: true },
+			{ description: "Finish screencast", completed: false },
+			{ description: "Make donation", completed: false },
+			{ description: "Clear inbox", completed: false },
+			{ description: "Make dinner", completed: false },
+			{ description: "Clean room", completed: true }
+		]
+    },
+    computed: {
+    	completedTasks() {
+    		return this.tasks.filter(task => task.completed);
+    	},
+    	uncompletedTasks() {
+    		return this.tasks.filter(task => !task.completed);
+    	}
     }
 });

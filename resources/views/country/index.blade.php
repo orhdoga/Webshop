@@ -61,7 +61,7 @@
 
 	</div>
 
-	<div class="row" id="fadeOne">
+	<div class="row category" id="fadeTwo">
 
 		@foreach($countries as $country)
 

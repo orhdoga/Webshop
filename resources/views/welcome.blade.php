@@ -32,7 +32,7 @@
 
 	<div class="row">
 
- 		<div class="col-md-4" id="fadeThumbOne">
+ 		<div class="col-md-4" id="fadeOne">
             <a href="{{ url('/countries') }}">
 	            <div class="thumbnail">
 	                <img src="{{ url('media/welcome/country.jpg') }}">
@@ -45,7 +45,7 @@
   			</a>
         </div>
 
- 		<div class="col-md-4" id="fadeThumbTwo">
+ 		<div class="col-md-4" id="fadeTwo">
             <a href="{{ url('/models') }}">
 	            <div class="thumbnail">
 	                <img src="{{ url('media/welcome/model.jpg') }}">
@@ -58,7 +58,7 @@
   			</a>
         </div>
 
- 		<div class="col-md-4" id="fadeThumbThree">
+ 		<div class="col-md-4" id="fadeThree">
             <a href="{{ url('/news') }}">
 	            <div class="thumbnail">
 	                <img src="{{ url('media/welcome/newsItem.jpg') }}">

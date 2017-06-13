@@ -12,7 +12,7 @@
             
             <div class="account-wall">
               
-                <img class="profile-img" src="images/login-icon.jpg">
+                <img class="profile-img" src="{{ url('/media/login-icon.jpg') }}">
                 
                 <form class="form-signin" role="form" method="POST" action="{{ route('login') }}">
 

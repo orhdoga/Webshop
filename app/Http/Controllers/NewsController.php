@@ -69,7 +69,7 @@ class NewsController extends Controller
     {
         $newsItem->delete();
 
-        flash(e("You have successfully deleted " . $newsItem->media), 'danger');
+        flash(e("You have successfully deleted " . $newsItem->name), 'danger');
 
         return back();
     }

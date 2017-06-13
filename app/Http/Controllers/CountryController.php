@@ -104,7 +104,7 @@ class CountryController extends Controller
     {
         $country->delete();
 
-        flash(e("You have successfully deleted " . $country->media), 'danger');
+        flash(e("You have successfully deleted " . $country->name), 'danger');
 
         return back();
     }
